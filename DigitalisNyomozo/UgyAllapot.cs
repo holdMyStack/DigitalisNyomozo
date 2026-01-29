@@ -6,18 +6,8 @@ using System.Threading.Tasks;
 
 namespace DigitalisNyomozo
 {
-	internal class UgyKezelo
+	internal class UgyAllapot
 	{
-		AdatTar tar;
-
-		public UgyKezelo(AdatTar tar)
-		{
-			this.tar = tar;
-		}
-
-		public void HozzaAd(Ugy ugy)
-		{
-			this.tar.
-		}
+		
 	}
 }

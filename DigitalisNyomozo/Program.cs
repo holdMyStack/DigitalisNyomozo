@@ -83,7 +83,7 @@
 
 		static void FoMenu()
 		{
-			
+			AdatTar tarhely = new AdatTar();
 		}
 
 		static void Main(string[] args)

@@ -8,10 +8,10 @@ namespace DigitalisNyomozo
 {
 	internal class AdatTar
 	{
-		List<Felhasznalo> felhasznalok;
-		List<Ugy> ugyek;
-		List<Szemely> szemelyek;
-		List<Bizonyitek> bizonyitekok;
+		public List<Felhasznalo> felhasznalok;
+		public List<Ugy> ugyek;
+		public List<Szemely> szemelyek;
+		public List<Bizonyitek> bizonyitekok;
 
 		public AdatTar()
 		{
