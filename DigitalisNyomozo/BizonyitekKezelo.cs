@@ -20,6 +20,10 @@ namespace DigitalisNyomozo
 			bizonyitekok.Add(bizonyitek);
 		}
 
+		public List<Bizonyitek> Listaz() {
+			return bizonyitekok;
+		}
+
 		public void Torol(Bizonyitek bizonyitek)
 		{
 			bizonyitekok.Remove(bizonyitek);
