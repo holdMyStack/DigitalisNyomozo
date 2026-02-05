@@ -8,25 +8,25 @@ namespace DigitalisNyomozo
 {
 	internal class BizonyitekKezelo
 	{
-		List<Bizonyitek> bizonyitekok;
+		AdatTar tar;
 
-		public BizonyitekKezelo()
+		public BizonyitekKezelo(AdatTar tar)
 		{
-			bizonyitekok = new List<Bizonyitek>();
+			this.tar = tar;
 		}
 
 		public void HozzaAd(Bizonyitek bizonyitek)
 		{
-			bizonyitekok.Add(bizonyitek);
+			tar.bizonyitekok.Add(bizonyitek);
 		}
 
 		public List<Bizonyitek> Listaz() {
-			return bizonyitekok;
+			return tar.bizonyitekok;
 		}
 
 		public void Torol(Bizonyitek bizonyitek)
 		{
-			bizonyitekok.Remove(bizonyitek);
+			tar.bizonyitekok.Remove(bizonyitek);
 		}
 	}
 }

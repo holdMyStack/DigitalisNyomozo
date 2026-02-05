@@ -15,6 +15,11 @@ namespace DigitalisNyomozo
 			this.tar = tar;
 		}
 
+		public List<Ugy> Listaz()
+		{
+			return tar.ugyek;
+		}
+
 		public void UgyHozzaAd(Ugy ugy)
 		{
 			tar.ugyek.Add(ugy);
