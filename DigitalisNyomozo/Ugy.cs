@@ -8,12 +8,12 @@ namespace DigitalisNyomozo
 {
 	internal class Ugy
 	{
-		string azonosito;
-		string cim;
-		string leiras;
-		string allapot;
-		List<Szemely> szemelyek;
-		List<Bizonyitek> bizonyitekok;
+		public string azonosito;
+		public string cim;
+		public string leiras;
+		public string allapot;
+		public List<Szemely> szemelyek;
+		public List<Bizonyitek> bizonyitekok;
 
 		public Ugy(string azonosito, string cim, string leiras, string allapot, List<Szemely> szemelyek, List<Bizonyitek> bizonyitekok)
 		{

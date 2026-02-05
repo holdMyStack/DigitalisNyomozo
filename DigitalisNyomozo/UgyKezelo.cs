@@ -15,9 +15,19 @@ namespace DigitalisNyomozo
 			this.tar = tar;
 		}
 
-		public void HozzaAd(Ugy ugy)
+		public void UgyHozzaAd(Ugy ugy)
 		{
-			this.tar.
+			tar.ugyek.Add(ugy);
+		}
+
+		public void SzemelyHozzaAd(Ugy ugy, Szemely szemely)
+		{
+			ugy.szemelyek.Add(szemely);
+		}
+
+		public void BizonyítekHozzaAd(Ugy ugy, Bizonyitek bizonyitek)
+		{
+			ugy.bizonyitekok.Add(bizonyitek);
 		}
 	}
 }
