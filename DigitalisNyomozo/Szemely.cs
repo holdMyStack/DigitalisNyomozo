@@ -18,5 +18,10 @@ namespace DigitalisNyomozo
 			this.eletkor = eletkor;
 			this.megjegyzes = megjegyzes;
 		}
+
+		public string Szovegge()
+		{
+			return $"{nev}, született {2026 - eletkor}";
+		}
 	}
 }
