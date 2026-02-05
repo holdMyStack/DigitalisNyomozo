@@ -18,5 +18,10 @@ namespace DigitalisNyomozo
 			this.gyanusitottsagiSzint = gyanusitottsagiSzint;
 			this.statusz = statusz;
 		}
+
+		public override string ToString()
+		{
+			return $"{szemely.ToString()}\n> Gyanusítottsági szint: {gyanusitottsagiSzint}\n> Státusz: {statusz}";
+		}
 	}
 }
