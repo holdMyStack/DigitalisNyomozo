@@ -19,7 +19,7 @@ namespace DigitalisNyomozo
 			this.megjegyzes = megjegyzes;
 		}
 
-		public string ToString()
+		override public string ToString()
 		{
 			return $"{nev}, született {2026 - eletkor}";
 		}
