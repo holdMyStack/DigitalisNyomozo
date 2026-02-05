@@ -8,9 +8,9 @@ namespace DigitalisNyomozo
 {
 	internal class Szemely
 	{
-		string nev;
-		int eletkor;
-		string megjegyzes;
+		public string nev;
+		public int eletkor;
+		public string megjegyzes;
 
 		public Szemely(string nev, int eletkor, string megjegyzes)
 		{
