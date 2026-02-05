@@ -24,5 +24,23 @@ namespace DigitalisNyomozo
 			this.szemelyek = szemelyek;
 			this.bizonyitekok = bizonyitekok;
 		}
+
+		public override string ToString()
+		{
+			string szemelyekString = "";
+			string bizonyitekokString = "";
+
+			foreach (Szemely szemely in szemelyek)
+			{
+				szemelyekString += $"\n{szemely.ToString()}";
+			}
+
+			foreach (Bizonyitek bizony in bizonyitekok)
+			{
+				szemelyekString += $"\n{bizony.ToString()}";
+			}
+
+			return $"== {azonosito} {cim} - {allapot} ==\nLeírás: {leiras}\nSzemélyek:{szemelyekString}\nBizonyítékok:{bizonyitekokString}";
+		}
 	}
 }
