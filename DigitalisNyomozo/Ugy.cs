@@ -14,8 +14,9 @@ namespace DigitalisNyomozo
 		public string allapot;
 		public List<Szemely> szemelyek;
 		public List<Bizonyitek> bizonyitekok;
+		public List<Gyanusitott> gyanusitottak;
 
-		public Ugy(string azonosito, string cim, string leiras, string allapot, List<Szemely> szemelyek, List<Bizonyitek> bizonyitekok)
+		public Ugy(string azonosito, string cim, string leiras, string allapot, List<Szemely> szemelyek, List<Bizonyitek> bizonyitekok, List<Gyanusitott> gyanusitottak)
 		{
 			this.azonosito = azonosito;
 			this.cim = cim;
@@ -23,12 +24,14 @@ namespace DigitalisNyomozo
 			this.allapot = allapot;
 			this.szemelyek = szemelyek;
 			this.bizonyitekok = bizonyitekok;
+			this.gyanusitottak = gyanusitottak;
 		}
 
 		public override string ToString()
 		{
 			string szemelyekString = "";
 			string bizonyitekokString = "";
+			string gyanusitottakString = "";
 
 			foreach (Szemely szemely in szemelyek)
 			{
@@ -40,7 +43,12 @@ namespace DigitalisNyomozo
 				szemelyekString += $"\n{bizony.ToString()}";
 			}
 
-			return $"== {azonosito} {cim} - {allapot} ==\nLeírás: {leiras}\nSzemélyek:{szemelyekString}\nBizonyítékok:{bizonyitekokString}";
+			foreach (Gyanusitott gyanusitott in gyanusitottak)
+			{
+				gyanusitottakString += $"\n{gyanusitott.ToString()}";
+			}
+
+			return $"== {azonosito} {cim} - {allapot} ==\nLeírás: {leiras}\nSzemélyek:{szemelyekString}\nBizonyítékok:{bizonyitekokString}\nGyanusítottak:{gyanusitottakString}";
 		}
 	}
 }
