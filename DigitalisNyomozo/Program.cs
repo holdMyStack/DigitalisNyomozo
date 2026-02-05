@@ -2,7 +2,7 @@
 {
 	internal class Program
 	{
-		static int ValasztasMenu(List<string> opciok)
+		static int ValasztasMenu(string[] opciok)
 		{
 			for (int i = 0; i < opciok.Count(); i++)
 			{
@@ -81,9 +81,150 @@
 			return valasztas;
 		}
 
+		static void Fejlec(string alMenu)
+		{
+			Console.Clear();
+			Console.WriteLine($"======== BRFK KEZELŐFELÜLET > {alMenu} ========\n");
+		}
+
+		static void SzemélyzetAlMenu(AdatTar tar)
+		{
+			string[] menuOpciok = { "Listázás", "Felvétel", "Törlés", "Visszalépés" };
+			int opcio;
+
+			do
+			{
+				Fejlec("Személyzet");
+				Console.WriteLine("Válasszon műveletet:");
+
+				opcio = ValasztasMenu(menuOpciok);
+				Console.WriteLine();
+
+				switch (opcio)
+				{
+					case 0:
+						Fejlec("Személy listázás");
+
+						foreach (Szemely szemely in tar.szemelyek)
+						{
+							Console.WriteLine(szemely.ToString());
+						}
+
+						Console.ReadKey();
+						break;
+
+					case 1:
+						Fejlec("Személy felvétel");
+
+						Console.Write("Személy neve: ");
+						string szemelyNev = Console.ReadLine();
+
+						Console.Write("Személy életkora: ");
+						int eletkor;
+						bool sikeres = int.TryParse(Console.ReadLine(), out eletkor);
+
+						if (sikeres)
+						{
+							Console.Write("Megjegyzés: ");
+							string megjegyzes = Console.ReadLine();
+
+							Szemely hozzaadott = new Szemely(szemelyNev, eletkor, megjegyzes);
+
+							Fejlec("Személy felvétel");
+							Console.WriteLine(hozzaadott.ToString());
+							Console.Write("Helyes? (i/n) ");
+
+							char key2 = Console.ReadKey().KeyChar;
+							Console.WriteLine("");
+
+							if (key2 == 'i')
+							{
+								tar.szemelyek.Add(hozzaadott);
+								Console.WriteLine("\n> Személy hozzáadása sikeres.");
+							}
+							else
+							{
+								Console.WriteLine("\n> Személy hozzáadása megszakítva.");
+							}
+						}
+						else
+						{
+							Console.WriteLine("\n> Helytelen számérték, személy hozzáadás megszakítva.");
+						}
+
+						Console.ReadKey();
+
+						break;
+
+					case 2:
+						Fejlec("Személy törlés");
+
+						List<string> szemelyek = new List<string>();
+
+						foreach (Szemely szemely in tar.szemelyek)
+						{
+							szemelyek.Add(szemely.ToString());
+						}
+
+						int valasztott = ValasztasLista(szemelyek);
+
+						Fejlec("Személy törlés");
+
+						Console.WriteLine(tar.szemelyek[valasztott].ToString());
+						Console.Write("\nHelyes? (i/n) ");
+
+						char key = Console.ReadKey().KeyChar;
+						Console.WriteLine("");
+
+						if (key == 'i')
+						{
+							tar.szemelyek.Remove(tar.szemelyek[valasztott]);
+							Console.WriteLine("\n> Személy eltávolítása sikeres.");
+						}
+						else
+						{
+							Console.WriteLine("\n> Személy eltávolítása megszakítva.");
+						}
+
+						break;
+				}
+			} while (opcio != 3);
+		}
+
+		static void UgyekAlMenu(AdatTar tar)
+		{
+
+			
+		}
+
 		static void FoMenu()
 		{
-			AdatTar tarhely = new AdatTar();
+			AdatTar tar = new AdatTar();
+
+			UgyKezelo ugyKezelo = new UgyKezelo(tar);
+			BizonyitekKezelo bizonyitekKezelo = new BizonyitekKezelo(tar);
+
+			string[] menuOpciok = { "Személyzet", "Ügyek", "Gyanusítottak", "Tanúk", "Bizonyítékok", "Kilépés" };
+			int opcio;
+
+			do
+			{
+				Fejlec("Fő");
+
+				Console.WriteLine("Válasszon almenüt:");
+				opcio = ValasztasMenu(menuOpciok);
+
+				switch (opcio)
+				{
+					case 0:
+						SzemélyzetAlMenu(tar);
+						break;
+
+					case 1:
+						UgyekAlMenu(tar);
+						break;
+				}
+			} while (opcio != 5);
 		}
 
 		static void Main(string[] args)
