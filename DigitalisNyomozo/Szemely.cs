@@ -21,7 +21,7 @@ namespace DigitalisNyomozo
 
 		override public string ToString()
 		{
-			return $"{nev}, született {2026 - eletkor}";
+			return $"- {nev}, született {2026 - eletkor}\n> {megjegyzes}";
 		}
 	}
 }
