@@ -20,5 +20,10 @@ namespace DigitalisNyomozo
 			this.leiras = leiras;
 			this.megbizhatosagiErtek = megbizhatosagiErtek;
 		}
-	}
+
+        public string Azonosito { get => azonosito; }
+        public string Tipus { get => tipus; }
+        public string Leiras { get => leiras; }
+        public int MegbizhatosagiErtek { get => megbizhatosagiErtek; }
+    }
 }
