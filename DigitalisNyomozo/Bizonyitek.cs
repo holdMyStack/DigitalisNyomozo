@@ -21,6 +21,11 @@ namespace DigitalisNyomozo
 			this.megbizhatosagiErtek = megbizhatosagiErtek;
 		}
 
+        public override string ToString()
+        {
+			return $"> {azonosito} {tipus}, megbízhatóság: {megbizhatosagiErtek}/5\n> {leiras}";
+        }
+
         public string Azonosito { get => azonosito; }
         public string Tipus { get => tipus; }
         public string Leiras { get => leiras; }
