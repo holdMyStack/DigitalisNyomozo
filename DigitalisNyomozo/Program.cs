@@ -178,6 +178,21 @@
 
                         if (key == 'i')
                         {
+                            foreach (Ugy szemelyUgy in tar.ugyek)
+                            {
+                                if (szemelyUgy.szemelyek.Contains(tar.szemelyek[valasztott]))
+                                {
+                                    szemelyUgy.szemelyek.Remove(tar.szemelyek[valasztott]);
+								}
+
+                                foreach (Gyanusitott gyanusitott in szemelyUgy.gyanusitottak)
+                                {
+                                    if (gyanusitott.Szemely == tar.szemelyek[valasztott])
+                                    {
+                                        szemelyUgy.gyanusitottak.Remove(gyanusitott);
+                                    }
+								}
+							}
                             tar.szemelyek.Remove(tar.szemelyek[valasztott]);
                             Console.WriteLine("\n> Személy eltávolítása sikeres.");
                         }

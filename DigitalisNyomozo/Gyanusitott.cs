@@ -19,6 +19,10 @@ namespace DigitalisNyomozo
 			this.statusz = statusz;
 		}
 
+		public int GyanusitottsagiSzint { get => gyanusitottsagiSzint; set => gyanusitottsagiSzint = value; }
+		public string Statusz { get => statusz; set => statusz = value; }
+		internal Szemely Szemely { get => szemely; }
+
 		public override string ToString()
 		{
 			return $"{szemely.ToString()}\n> Gyanusítottsági szint: {gyanusitottsagiSzint}\n> Státusz: {statusz}";
